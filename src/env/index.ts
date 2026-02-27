@@ -1,0 +1,25 @@
+import "dotenv/config";
+import z from "zod";
+
+const envSchema = z.object({
+  PORT: z.coerce.number().default(3333),
+  // DATABASE_CLIENT: z.enum(["sqlite", "pg"]).default("sqlite"),
+  DATABASE_URL: z.string(),
+  NODE_ENV: z.enum(["dev", "production", "test"]).default("dev"),
+});
+
+const _env = envSchema.safeParse(process.env);
+
+if (_env.success === false) {
+  console.error(
+    "❌ Invalid environment variables:",
+    _env.error.issues.map((issue) => ({
+      field: issue.path.join("."),
+      message: issue.message,
+    })),
+  );
+
+  throw new Error("Invalid environment variables.");
+}
+
+export const env = _env.data;
