@@ -1,6 +1,5 @@
-import { id } from "zod/locales";
-import type { User } from "../../../generated/prisma/client.js";
-import type { UserCreateInput } from "../../../generated/prisma/models.js";
+import { randomUUID } from "node:crypto";
+import type { Prisma, User } from "../../../generated/prisma/client.js";
 import type { UserRepository } from "../users-repository.js";
 
 export class InMemoryUsersRepository implements UserRepository {
@@ -26,9 +25,9 @@ export class InMemoryUsersRepository implements UserRepository {
     return user;
   }
 
-  async create(data: UserCreateInput) {
+  async create(data: Prisma.UserCreateInput) {
     const user = {
-      id: "user-1",
+      id: randomUUID(),
       name: data.name,
       email: data.email,
       password_hash: data.password_hash,
