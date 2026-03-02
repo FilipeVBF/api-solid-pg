@@ -1,6 +1,5 @@
-import { expect, describe, it, beforeEach, vi, afterEach } from "vitest";
+import { expect, describe, it, beforeEach } from "vitest";
 import { InMemoryCheckInsRepository } from "@/repositories/in-memory/in-memory-check-ins-repository.js";
-import { InMemoryGymsRepository } from "@/repositories/in-memory/in-memory-gyms-repository.js";
 import { FetchUserCheckInsHistoryUseCase } from "./fetch-user-check-ins-history.js";
 
 let checkInsRepository: InMemoryCheckInsRepository;
