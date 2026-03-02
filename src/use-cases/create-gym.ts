@@ -1,4 +1,3 @@
-import { UserAlreadyExistsError } from "./errors/user-already-exists-error.js";
 import type { Gym } from "../../generated/prisma/client.js";
 import type { GymsRepository } from "@/repositories/gyms-repository.js";
 
