@@ -1,6 +1,5 @@
 import type { UserRepository } from "@/repositories/users-repository.js";
 import type { User } from "../../generated/prisma/client.js";
-import { compare } from "bcryptjs";
 import { ResourceNotFoundError } from "./errors/resource-not-found-error.js";
 
 interface GetUserProfileUseCaseRequest {
