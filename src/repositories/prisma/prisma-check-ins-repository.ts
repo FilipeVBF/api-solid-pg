@@ -3,7 +3,6 @@ import type { CheckIn } from "../../../generated/prisma/client.js";
 import type { CheckInUncheckedCreateInput } from "../../../generated/prisma/models.js";
 import type { CheckInsRepository } from "../check-ins-repository.js";
 import dayjs from "dayjs";
-import { randomUUID } from "node:crypto";
 
 export class PrismaCheckInsRepository implements CheckInsRepository {
   async findById(id: string) {
