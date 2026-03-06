@@ -7,7 +7,6 @@ export default defineConfig({
     pool: "forks",
     isolate: false,
     dir: "src",
-    reporters: ["default", "html"],
     projects: [
       {
         extends: true,
