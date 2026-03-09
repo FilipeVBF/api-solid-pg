@@ -1,0 +1,31 @@
+import { app } from "@/app.js";
+import { createAndAuthenticateUse } from "@/utils/test/create-and-authenticate-use.js";
+import request from "supertest";
+import { afterAll, beforeAll, describe, expect, it } from "vitest";
+
+describe("Create Gym (e2e)", () => {
+  beforeAll(async () => {
+    await app.ready();
+  });
+
+  afterAll(async () => {
+    await app.close();
+  });
+
+  it("should be able to create a gym", async () => {
+    const { token } = await createAndAuthenticateUse(app);
+
+    const response = await request(app.server)
+      .post("/gyms")
+      .set("Authorization", `Bearer ${token}`)
+      .send({
+        title: "JavaScript Gym",
+        description: "Some description.",
+        phone: "11999999999",
+        latitude: -13.0120686,
+        longitude: -38.4686105,
+      });
+
+    expect(response.statusCode).toEqual(201);
+  });
+});

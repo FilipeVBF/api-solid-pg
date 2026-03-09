@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     pool: "forks",
-    isolate: false,
     dir: "src",
     projects: [
       {
