@@ -27,7 +27,9 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run test:e2e
+      - run: npx prisma generate
+
         env:
           JWT_SECRET: testing
-          DATABASE_URL: postgresql://docker:docker@localhost:5432/apisolid?schema=public
+          DATABASE_URL: "postgresql://docker:docker@localhost:5432/apisolid?schema=public"
+      - run: npm run test:e2e

@@ -14,11 +14,7 @@
     "test:e2e:watch": "vitest --project e2e",
     "test:coverage": "vitest run --coverage",
     "test:ui": "vitest --project unit --ui",
-    "test:e2e:ui": "vitest --project e2e --ui",
-    "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
-    "test:install-prisma-environment": "npm link vitest-environment-prisma",
-    "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
-    "pretest:e2e:watch": "run-s test:create-prisma-environment test:install-prisma-environment"
+    "test:e2e:ui": "vitest --project e2e --ui"
   },
   "keywords": [],
   "author": "",
